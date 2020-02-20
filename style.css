@@ -7,6 +7,11 @@ p {
   text-align:justify;
 }
 
+pre {
+  color:#000099;
+  background-color:#ddd;
+}
+
 code {
   color:#990000;
 }
