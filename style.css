@@ -6,3 +6,11 @@ body {
 p {
   text-align:justify;
 }
+
+code {
+  color:#990000;
+}
+
+table td code {
+  color:#000;
+}
