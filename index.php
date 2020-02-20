@@ -1,13 +1,9 @@
-<html>
-<head>
-<title>code.dreamsense.com</title>
-<link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
+<?php
 
-<h1>code.dreamsense.com</h1>
+$title = "February 19, 2020";
 
-<h2>February 19, 2020</h2>
+?>
+<?php include "header.php"?>
 
 <pre>
 public class HelloWorld {
@@ -37,13 +33,4 @@ public class GoodbyeWorld {
 }
 </pre>
 
-<hr/>
-
-<address>
-Kyle Eggleston<br/>
-<a href="mailto:kyle@dreamsense.com">kyle@dreamsense.com</a><br/>
-Copyright &copy; 2003 - 2020<br/>
-</address>
-
-</body>
-</html>
+<?php include "footer.php"?>
