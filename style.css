@@ -10,6 +10,8 @@ p {
 pre {
   color:#000099;
   background-color:#ddd;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 code {
