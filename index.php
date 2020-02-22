@@ -1,20 +1,14 @@
 <?php
 
-$title = "February 21, 2020";
+$title = "February 22, 2020";
 
 ?>
 <?php include "header.php"?>
 
-<p><a href="/2020/20200220.php">Yesterday</a> we talked about
-  dates, today we're talking about xml.</p>
+<p><a href="/2020/20200221.php">Yesterday</a> we talked about
+  XML, today we're talking about <em>reading</em> XML.</p>
 
-<p>So, what is XML? XML stands for eXtensible Markup Langugage.</p>
-
-<p>It was the basic goto for transferring data in a format specified by onne
-  party and used by others. There's no spcific way that an XML file should
-  look, only that it needs to be well formatted.</p>
-
-<p>What's aa well formatted XML document look like? Well, here's an example.</p>
+<p>Let's start with the following XML document, and read it via SAX.</p>
 
 <pre>
   &lt;?xml version="1.0"?>
@@ -25,68 +19,94 @@ $title = "February 21, 2020";
   &lt;/data>
 </pre>
 
-<p>There ya go, that's a well formatted XML document. As you can see, each node
-  has a starting and a matching end node. Simple enough right?</p>
+<p>There are two ways to read in an XML document, SAX or through the DOM.
+  I personally prefer SAX as it reads it line by line, element by element. The
+  DOM is reading in the entire document and parsing it from there. I suppose
+  if it is a small document, the DOM is fine. But what if you get several thousand
+  elements in an xml document? What do you do then? Yep, that's why I prefer SAX.</p>
 
-<p>You can make <em>any</em> kind of data document using XML. For example, let's
-  say you wanted files sent in a specific format, you could use XML as that goto.
-  grabbing data in this way, you can ensure that you get what you need.</p>
+  <p>Here's a simple way to read it using SAX.</p>
 
-<p>If we wanted to output the above xml, we could use Java and the
-  <code>XMLStreamWriter</code> class.</p>
+  <pre>
+    import javax.xml.parsers.SAXParser;
+    import javax.xml.parsers.SAXParserFactory;
+    import org.xml.sax.Attributes;
+    import org.xml.sax.SAXException;
+    import org.xml.sax.helpers.DefaultHandler;
 
-<pre>
-  import java.io.FileNotFoundException;
-  import java.io.FileOutputStream;
-  import java.util.HashMap;
-  import java.util.Map;
+    public class Test {
 
-  import javax.xml.stream.XMLOutputFactory;
-  import javax.xml.stream.XMLStreamException;
-  import javax.xml.stream.XMLStreamWriter;
+      public static void main(String[] args) {
+        try {
+          SAXParserFactory factory = SAXParserFactory.newInstance();
+          SAXParser saxParser = factory.newSAXParser();
 
-  public class WriteXml {
+          DefaultHandler handler = new DefaultHandler() {
 
-    public static void main(String[] args) {
-      XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
-      String filename = "data.xml";
+          boolean bFirstName = false;
+          boolean bLastName = false;
+          boolean bPhone = false;
 
-      try {
-        XMLStreamWriter xmlStreamWriter =
-          xmlOutputFactory.createXMLStreamWriter(
-          new FileOutputStream(filename), "UTF-8");
+          public void startElement(String uri, String localName, String qName,
+            Attributes attributes) throws SAXException {
 
-          xmlStreamWriter.writeStartDocument("UTF-8", "1.0");
-          xmlStreamWriter.writeCharacters("\n");
-          xmlStreamWriter.writeStartElement("data");
-          xmlStreamWriter.writeCharacters("\n");
+            if (qName.equalsIgnoreCase("firstname")) {
+              bFirstName = true;
+            }
 
-          xmlStreamWriter.writeStartElement("firstName");
-          xmlStreamWriter.writeCharacters("John");
-          xmlStreamWriter.writeEndElement();
-          xmlStreamWriter.writeCharacters("\n");
+            if (qName.equalsIgnoreCase("lastname")) {
+              bLastName = true;
+            }
 
-          xmlStreamWriter.writeStartElement("lastName");
-          xmlStreamWriter.writeCharacters("Smith");
-          xmlStreamWriter.writeEndElement();
-          xmlStreamWriter.writeCharacters("\n");
+            if (qName.equalsIgnoreCase("phone")) {
+              bPhone = true;
+            }
+          }
 
-          xmlStreamWriter.writeStartElement("phone");
-          xmlStreamWriter.writeCharacters("916-555-4418");
-          xmlStreamWriter.writeEndElement();
-          xmlStreamWriter.writeCharacters("\n");
+          public void endElement(String uri, String localName, String qName)
+            throws SAXException {
 
-          xmlStreamWriter.writeEndDocument();
+            System.out.println("End Element: " + qName);
+          }
 
-          xmlStreamWriter.flush();
-          xmlStreamWriter.close();
-      } catch(XMLStreamException | FileNotFoundException e){
-        e.printStackTrace();
+          public void characters(char ch[], int start, int length)
+            throws SAXException {
+
+            if (bFirstName) {
+              System.out.println("First Name: " + new String(ch, start, length));
+              bFirstName = false;
+            }
+
+            if (bLastName) {
+              System.out.println("Last Name: " + new String(ch, start, length));
+              bLastName = false;
+            }
+
+            if (bPhone) {
+              System.out.println("Phone: " + new String(ch, start, length));
+              bPhone = false;
+            }
+          }
+        };
+
+        saxParser.parse("file.xml", handler);
+
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
       }
     }
-  }
-</pre>
+  </pre>
 
-<p>XML is slowly being replaced by JSON, but that's a story for another time.</p>
+  <p>Here's the result that we get:</p>
+
+  <pre>
+  First Name: John
+  End Element: firstName
+  Last Name: Smith
+  End Element: lastName
+  Phone: 916-555-4418
+  End Element: phone
+  </pre>
 
 <?php include "footer.php"?>
