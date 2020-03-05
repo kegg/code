@@ -3,7 +3,7 @@
 $title = "February 22, 2020";
 
 ?>
-<?php include "header.php"?>
+<?php include "../header.php"?>
 
 <p><a href="/2020/20200221.php">Yesterday</a> we talked about
   XML, today we're talking about <em>reading</em> XML.</p>
@@ -109,4 +109,4 @@ $title = "February 22, 2020";
   End Element: phone
   </pre>
 
-<?php include "footer.php"?>
+<?php include "../footer.php"?>
