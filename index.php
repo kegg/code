@@ -1,112 +1,53 @@
 <?php
 
-$title = "February 22, 2020";
+$title = "March 05, 2020";
 
 ?>
 <?php include "header.php"?>
 
-<p><a href="/2020/20200221.php">Yesterday</a> we talked about
-  XML, today we're talking about <em>reading</em> XML.</p>
+<p><a href="/2020/20200222.php">Last time</a> we talked about
+  reading XML, today we're talking about reading text files.</p>
 
-<p>Let's start with the following XML document, and read it via SAX.</p>
+<p>Text files are the most simplest file to have. It's plain text.
+  there's no fancy document things in it. No tables, no bolded
+  elements, nothing. Just plain text.</p>
+
+<p>So, how do we best read a text file? There's several ways to
+  do this. I don't know which way is quickest. I'm still learning</p>
 
 <pre>
-  &lt;?xml version="1.0"?>
-  &lt;data>
-    &lt;firstName>John&lt;/firstName>
-    &lt;lastName>Smith&lt;/lastName>
-    &lt;phone>916-555-4418&lt;/phone>
-  &lt;/data>
+  import java.io.IOException;
+  import java.nio.file.Files;
+  import java.nio.file.Path;
+  import java.nio.file.Paths;
+  import java.util.List;
+
+  public class ReadAll {
+
+    public static void main(String[] args) {
+      StringBuilder sb = new StringBuilder();
+
+      Path path = Paths.get("file.txt");
+      try{
+
+        List<String> contents = Files.readAllLines(path);
+
+        for(String content:contents){
+          sb.append(content);
+          sb.append("\n");
+        }
+
+        }catch(IOException ex){
+        ex.printStackTrace();
+      }
+
+      System.out.println(sb.toString());
+    }
+
+  }
 </pre>
 
-<p>There are two ways to read in an XML document, SAX or through the DOM.
-  I personally prefer SAX as it reads it line by line, element by element. The
-  DOM is reading in the entire document and parsing it from there. I suppose
-  if it is a small document, the DOM is fine. But what if you get several thousand
-  elements in an xml document? What do you do then? Yep, that's why I prefer SAX.</p>
-
-  <p>Here's a simple way to read it using SAX.</p>
-
-  <pre>
-    import javax.xml.parsers.SAXParser;
-    import javax.xml.parsers.SAXParserFactory;
-    import org.xml.sax.Attributes;
-    import org.xml.sax.SAXException;
-    import org.xml.sax.helpers.DefaultHandler;
-
-    public class Test {
-
-      public static void main(String[] args) {
-        try {
-          SAXParserFactory factory = SAXParserFactory.newInstance();
-          SAXParser saxParser = factory.newSAXParser();
-
-          DefaultHandler handler = new DefaultHandler() {
-
-          boolean bFirstName = false;
-          boolean bLastName = false;
-          boolean bPhone = false;
-
-          public void startElement(String uri, String localName, String qName,
-            Attributes attributes) throws SAXException {
-
-            if (qName.equalsIgnoreCase("firstname")) {
-              bFirstName = true;
-            }
-
-            if (qName.equalsIgnoreCase("lastname")) {
-              bLastName = true;
-            }
-
-            if (qName.equalsIgnoreCase("phone")) {
-              bPhone = true;
-            }
-          }
-
-          public void endElement(String uri, String localName, String qName)
-            throws SAXException {
-
-            System.out.println("End Element: " + qName);
-          }
-
-          public void characters(char ch[], int start, int length)
-            throws SAXException {
-
-            if (bFirstName) {
-              System.out.println("First Name: " + new String(ch, start, length));
-              bFirstName = false;
-            }
-
-            if (bLastName) {
-              System.out.println("Last Name: " + new String(ch, start, length));
-              bLastName = false;
-            }
-
-            if (bPhone) {
-              System.out.println("Phone: " + new String(ch, start, length));
-              bPhone = false;
-            }
-          }
-        };
-
-        saxParser.parse("file.xml", handler);
-
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      }
-    }
-  </pre>
-
-  <p>Here's the result that we get:</p>
-
-  <pre>
-  First Name: John
-  End Element: firstName
-  Last Name: Smith
-  End Element: lastName
-  Phone: 916-555-4418
-  End Element: phone
-  </pre>
+<p>To run this, create a file with the name file.txt and
+  add some text. Compile and run the program.</p>
 
 <?php include "footer.php"?>
