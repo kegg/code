@@ -3,7 +3,7 @@
 $title = "March 05, 2020";
 
 ?>
-<?php include "header.php"?>
+<?php include "../header.php"?>
 
 <p><a href="/2020/20200222.php">Last time</a> we talked about
   reading XML, today we're talking about reading text files.</p>
@@ -50,4 +50,4 @@ $title = "March 05, 2020";
 <p>To run this, create a file with the name file.txt and
   add some text. Compile and run the program.</p>
 
-<?php include "footer.php"?>
+<?php include "../footer.php"?>
