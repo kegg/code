@@ -1,53 +1,36 @@
 <?php
 
-$title = "March 05, 2020";
+$title = "March 21, 2020";
 
 ?>
 <?php include "header.php"?>
 
-<p><a href="/2020/20200222.php">Last time</a> we talked about
-  reading XML, today we're talking about reading text files.</p>
+<p><a href="/2020/20200305.php">Last time</a> we talked about
+  reading text files, today we're talking about writing text files.</p>
 
 <p>Text files are the most simplest file to have. It's plain text.
   there's no fancy document things in it. No tables, no bolded
   elements, nothing. Just plain text.</p>
 
-<p>So, how do we best read a text file? There's several ways to
-  do this. I don't know which way is quickest. I'm still learning</p>
+<p>So, how do we best write a text file? Like the following:</p>
 
 <pre>
+  import java.io.FileWriter;
   import java.io.IOException;
-  import java.nio.file.Files;
-  import java.nio.file.Path;
-  import java.nio.file.Paths;
-  import java.util.List;
 
-  public class ReadAll {
+  public class WriteFile {
 
     public static void main(String[] args) {
-      StringBuilder sb = new StringBuilder();
-
-      Path path = Paths.get("file.txt");
-      try{
-
-        List<String> contents = Files.readAllLines(path);
-
-        for(String content:contents){
-          sb.append(content);
-          sb.append("\n");
-        }
-
-        }catch(IOException ex){
-        ex.printStackTrace();
+      try {
+        FileWriter myWriter = new FileWriter("myfile.txt");
+        myWriter.write("Hello World!");
+        myWriter.close();
+      } catch (IOException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
       }
-
-      System.out.println(sb.toString());
     }
-
   }
 </pre>
-
-<p>To run this, create a file with the name file.txt and
-  add some text. Compile and run the program.</p>
 
 <?php include "footer.php"?>
