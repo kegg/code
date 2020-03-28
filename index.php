@@ -1,36 +1,42 @@
 <?php
 
-$title = "March 21, 2020";
+$title = "March 28, 2020";
 
 ?>
 <?php include "header.php"?>
 
-<p><a href="/2020/20200305.php">Last time</a> we talked about
-  reading text files, today we're talking about writing text files.</p>
+<p><a href="/2020/20200321.php">Last time</a> we talked about
+  writing text files, today we're talking about property files.</p>
 
-<p>Text files are the most simplest file to have. It's plain text.
-  there's no fancy document things in it. No tables, no bolded
-  elements, nothing. Just plain text.</p>
+<p>A property file is a map of keys and values. It's stored in a file.</p>
 
-<p>So, how do we best write a text file? Like the following:</p>
+<p>We can create a property file by doing the following:</p>
 
 <pre>
-  import java.io.FileWriter;
+  import java.io.FileNotFoundException;
+  import java.io.FileOutputStream;
   import java.io.IOException;
+  import java.util.Properties;
 
-  public class WriteFile {
+  public class Property {
 
-    public static void main(String[] args) {
-      try {
-        FileWriter myWriter = new FileWriter("myfile.txt");
-        myWriter.write("Hello World!");
-        myWriter.close();
-      } catch (IOException e) {
-        System.out.println("An error occurred.");
-        e.printStackTrace();
-      }
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+      Properties props = new Properties();
+      props.put("one", "1");
+      props.put("two", "2");
+      props.store(new FileOutputStream("test.properties"), "any comment here");
     }
+
   }
+</pre>
+
+Running the above code, we get the following <code>test.properties</code> file:
+
+<pre>
+  #any comment here
+  #Sat Mar 28 12:42:27 MDT 2020
+  two=2
+  one=1
 </pre>
 
 <?php include "footer.php"?>
