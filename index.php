@@ -20,11 +20,13 @@ $title = "March 28, 2020";
 
   public class Property {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args)
+      throws FileNotFoundException, IOException {
       Properties props = new Properties();
       props.put("one", "1");
       props.put("two", "2");
-      props.store(new FileOutputStream("test.properties"), "any comment here");
+      props.store(new FileOutputStream("test.properties"),
+        "any comment here");
     }
 
   }
