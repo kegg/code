@@ -5,40 +5,39 @@ $title = "March 28, 2020";
 ?>
 <?php include "header.php"?>
 
-<p><a href="/2020/20200321.php">Last time</a> we talked about
-  writing text files, today we're talking about property files.</p>
+<p><a href="/2020/20200328.php">Last time</a> we talked about
+  creating prooperty files. Today, let's see how we read a property file. </p>
 
-<p>A property file is a map of keys and values. It's stored in a file.</p>
-
-<p>We can create a property file by doing the following:</p>
+<p>First the properties file we'll be loading.</p>
 
 <pre>
-  import java.io.FileNotFoundException;
-  import java.io.FileOutputStream;
+  greeting=Hello World
+</pre>
+
+<p>Now we load the file and output a value to the screen.</p>
+
+<pre>
+  import java.io.FileInputStream;
   import java.io.IOException;
+  import java.io.InputStream;
   import java.util.Properties;
 
   public class Property {
 
-    public static void main(String[] args)
-      throws FileNotFoundException, IOException {
-      Properties props = new Properties();
-      props.put("one", "1");
-      props.put("two", "2");
-      props.store(new FileOutputStream("test.properties"),
-        "any comment here");
+    public static void main(String[] args) {
+      try (InputStream input = new FileInputStream("file.properties")) {
+
+        Properties prop = new Properties();
+
+        prop.load(input);
+
+        System.out.println(prop.getProperty("greeting"));
+
+      } catch (IOException ex) {
+          ex.printStackTrace();
+      }
     }
-
   }
-</pre>
-
-Running the above code, we get the following <code>test.properties</code> file:
-
-<pre>
-  #any comment here
-  #Sat Mar 28 12:42:27 MDT 2020
-  two=2
-  one=1
 </pre>
 
 <?php include "footer.php"?>
