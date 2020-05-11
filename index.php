@@ -1,43 +1,35 @@
 <?php
 
-$title = "April 02, 2020";
+$title = "May 19, 2020";
 
 ?>
 <?php include "header.php"?>
 
-<p><a href="/2020/20200328.php">Last time</a> we talked about
-  creating prooperty files. Today, let's see how we read a property file. </p>
+<p><a href="/2020/20200402.php">Last time</a> we talked about
+  reading prooperty files. Today let's store the property information
+  xml format.</p>
 
-<p>First the properties file we'll be loading.</p>
+<p>We'll take the previous example and make one change to it. Instead of
+  calling <code>store</code>, we'll call <code>storeToXML</code>.</p>
 
-<pre>
-  greeting=Hello World
-</pre>
+  <pre>
+    import java.io.FileNotFoundException;
+    import java.io.FileOutputStream;
+    import java.io.IOException;
+    import java.util.Properties;
 
-<p>Now we load the file and output a value to the screen.</p>
+    public class Property {
 
-<pre>
-  import java.io.FileInputStream;
-  import java.io.IOException;
-  import java.io.InputStream;
-  import java.util.Properties;
-
-  public class Property {
-
-    public static void main(String[] args) {
-      try (InputStream input = new FileInputStream("file.properties")) {
-
-        Properties prop = new Properties();
-
-        prop.load(input);
-
-        System.out.println(prop.getProperty("greeting"));
-
-      } catch (IOException ex) {
-          ex.printStackTrace();
+      public static void main(String[] args)
+        throws FileNotFoundException, IOException {
+        Properties props = new Properties();
+        props.put("one", "1");
+        props.put("two", "2");
+        props.storeToXML(new FileOutputStream("test.properties"),
+          "any comment here");
       }
+
     }
-  }
-</pre>
+  </pre>
 
 <?php include "footer.php"?>
