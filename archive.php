@@ -13,7 +13,8 @@ $title = "Archive";
 <a href="/2020/20200305.php">Reading Text Files</a><br/>
 <a href="/2020/20200321.php">Writing Text Files</a><br/>
 <a href="/2020/20200328.php">Creating a Property File</a><br/>
-<a href="/2020/20200402.php">Reading a Property File</a>
+<a href="/2020/20200402.php">Reading a Property File</a><br/>
+<a href="/2020/20200519.php">Writing an XML Property File</a>
 </p>
 
 <?php include "footer.php"?>

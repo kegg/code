@@ -3,10 +3,10 @@
 $title = "May 19, 2020";
 
 ?>
-<?php include "header.php"?>
+<?php include "../header.php"?>
 
 <p><a href="/2020/20200402.php">Last time</a> we talked about
-  reading prooperty files. Today let's store the property in
+  reading prooperty files. Today let's store the property in 
   xml format.</p>
 
 <p>We'll take the previous example and make one change to it. Instead of
@@ -32,4 +32,4 @@ $title = "May 19, 2020";
     }
   </pre>
 
-<?php include "footer.php"?>
+<?php include "../footer.php"?>
