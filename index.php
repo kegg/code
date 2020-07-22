@@ -1,24 +1,58 @@
 <?php
 
-$title = "July 21, 2020";
+$title = "Welcome";
 
 ?>
 <?php include "header.php"?>
 
-<p>Creating a frame</p>
+<h2>The Basics</h2>
+<table>
+  <tr>
+    <td><a href="/2020/hello.php">Hello World</a></td>
+  </tr>
+  <tr>
+    <td><a href="/2020/dates.php">Dates</a></td>
+  </tr>
+  <tr>
+    <td>
+  </tr>
+</table>
 
-<pre>
-  import javax.swing.JFrame;
+<h2>XML</h2>
+<table>
+  <tr>
+    <td><a href="/2020/xml.php">Writing XML</a></td>
+  </tr>
+  <tr>
+    <td><a href="/2020/readingXml.php">Reading XML</a></td>
+  </tr>
+  <tr>
+    <td><a href="/2020/xmlProperty.php">Writing an XML Property File</a></td>
+  </tr>
+</table>
 
-  public class Frame {
-    public static void main(String[] args) {
-      JFrame frame = new JFrame();
-      frame.setSize)400,400);
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON)_CLOSE);
-      frame.setVisible(true);
-    }
-  }
-</pre>
+<h2>Text Files</h2>
+<table>
+  <tr>
+    <td><a href="/2020/readingText.php">Reading Text Files</a></td>
+  </tr>
+  <tr>
+    <td><a href="/2020/writingText.php">Writing Text Files</a><br/>
+  </tr>
+  <tr>
+    <td><a href="/2020/createProperty.php">Creating a Property File</a></td>
+  </tr>
+  <tr>
+    <td><a href="/2020/readProperty.php">Reading a Property File</a></td>
+  </tr>
+</table>
+
+<h2>Swing</h2>
+<table>
+  <tr>
+    <td><a href="/2020/frame.php">Creating a Frame</a></td>
+  </tr>
+</table>
 
 
 <?php include "footer.php"?>
