@@ -52,6 +52,12 @@ $title = "Welcome";
   <tr>
     <td><a href="/2020/frame.php">Creating a Frame</a></td>
   </tr>
+  <tr>
+    <td><a href="/2020/joptionpane.php">Showing a Message Dialog</a></td>
+  </tr>
+  <tr>
+    <td><a href="/2020/jdialog.php">Creating a JDialog</a></td>
+  </tr>
 </table>
 
 

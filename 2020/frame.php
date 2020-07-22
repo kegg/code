@@ -13,12 +13,12 @@ $title = "July 21, 2020";
   public class Frame {
     public static void main(String[] args) {
       JFrame frame = new JFrame();
-      frame.setSize)400,400);
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON)_CLOSE);
+      frame.setSize(400,400);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
     }
   }
 </pre>
 
 
-<?php include "footer.php"?>
+<?php include "../footer.php"?>
