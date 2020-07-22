@@ -5,9 +5,6 @@ $title = "February 21, 2020";
 ?>
 <?php include "../header.php"?>
 
-<p><a href="/2020/20200220.php">Yesterday</a> we talked about
-  dates, today we're talking about xml.</p>
-
 <p>So, what is XML? XML stands for eXtensible Markup Langugage.</p>
 
 <p>It was the basic goto for transferring data in a format specified by onne

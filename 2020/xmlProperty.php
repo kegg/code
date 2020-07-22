@@ -5,10 +5,6 @@ $title = "May 19, 2020";
 ?>
 <?php include "../header.php"?>
 
-<p><a href="/2020/20200402.php">Last time</a> we talked about
-  reading prooperty files. Today let's store the property in 
-  xml format.</p>
-
 <p>We'll take the previous example and make one change to it. Instead of
   calling <code>store</code>, we'll call <code>storeToXML</code>.</p>
 

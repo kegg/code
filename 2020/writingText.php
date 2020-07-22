@@ -5,9 +5,6 @@ $title = "March 21, 2020";
 ?>
 <?php include "../header.php"?>
 
-<p><a href="/2020/20200305.php">Last time</a> we talked about
-  reading text files, today we're talking about writing text files.</p>
-
 <p>Text files are the most simplest file to have. It's plain text.
   there's no fancy document things in it. No tables, no bolded
   elements, nothing. Just plain text.</p>

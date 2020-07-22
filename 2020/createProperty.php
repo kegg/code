@@ -5,9 +5,6 @@ $title = "March 28, 2020";
 ?>
 <?php include "../header.php"?>
 
-<p><a href="/2020/20200321.php">Last time</a> we talked about
-  writing text files, today we're talking about property files.</p>
-
 <p>A property file is a map of keys and values. It's stored in a file.</p>
 
 <p>We can create a property file by doing the following:</p>

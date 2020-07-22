@@ -6,15 +6,15 @@ $title = "Archive";
 <?php include "header.php"?>
 
 <p>
-<a href="/2020/20200219.php">Hello World</a><br/>
-<a href="/2020/20200220.php">Dates</a><br/>
-<a href="/2020/20200221.php">XML</a><br/>
-<a href="/2020/20200222.php">Reading XML</a><br/>
-<a href="/2020/20200305.php">Reading Text Files</a><br/>
-<a href="/2020/20200321.php">Writing Text Files</a><br/>
-<a href="/2020/20200328.php">Creating a Property File</a><br/>
-<a href="/2020/20200402.php">Reading a Property File</a><br/>
-<a href="/2020/20200519.php">Writing an XML Property File</a>
+<a href="/2020/hello.php">Hello World</a><br/>
+<a href="/2020/dates.php">Dates</a><br/>
+<a href="/2020/xml.php">XML</a><br/>
+<a href="/2020/readingXml.php">Reading XML</a><br/>
+<a href="/2020/readingText.php">Reading Text Files</a><br/>
+<a href="/2020/writingText.php">Writing Text Files</a><br/>
+<a href="/2020/createProperty.php">Creating a Property File</a><br/>
+<a href="/2020/readProperty.php">Reading a Property File</a><br/>
+<a href="/2020/xmlProperty.php">Writing an XML Property File</a>
 </p>
 
 <?php include "footer.php"?>

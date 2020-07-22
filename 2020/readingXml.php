@@ -5,9 +5,6 @@ $title = "February 22, 2020";
 ?>
 <?php include "../header.php"?>
 
-<p><a href="/2020/20200221.php">Yesterday</a> we talked about
-  XML, today we're talking about <em>reading</em> XML.</p>
-
 <p>Let's start with the following XML document, and read it via SAX.</p>
 
 <pre>

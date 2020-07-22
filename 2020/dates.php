@@ -5,9 +5,6 @@ $title = "February 20, 2020";
 ?>
 <?php include "../header.php"?>
 
-<p><a href="/2020/20200219.php">Yesterday</a> we talked about
-  the basic Hello World example, today we're talking about dates.</p>
-
 <p>Every day has a date. It can be formatted in seveal different ways.</p>
 
 <p>Here are the ways Java can format dates:</p>

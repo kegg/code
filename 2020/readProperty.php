@@ -6,9 +6,6 @@ $title = "April 02, 2020";
 ?>
 <?php include "../header.php"?>
 
-<p><a href="/2020/20200328.php">Last time</a> we talked about
-  creating prooperty files. Today, let's see how we read a property file. </p>
-
 <p>First the properties file we'll be loading.</p>
 
 <pre>
