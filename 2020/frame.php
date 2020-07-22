@@ -3,7 +3,7 @@
 $title = "July 21, 2020";
 
 ?>
-<?php include "header.php"?>
+<?php include "../header.php"?>
 
 <p>Creating a frame</p>
 

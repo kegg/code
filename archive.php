@@ -14,7 +14,8 @@ $title = "Archive";
 <a href="/2020/writingText.php">Writing Text Files</a><br/>
 <a href="/2020/createProperty.php">Creating a Property File</a><br/>
 <a href="/2020/readProperty.php">Reading a Property File</a><br/>
-<a href="/2020/xmlProperty.php">Writing an XML Property File</a>
+<a href="/2020/xmlProperty.php">Writing an XML Property File</a><br/>
+<a href="/2020/frame.php">Creating a Frame</a>
 </p>
 
 <?php include "footer.php"?>
